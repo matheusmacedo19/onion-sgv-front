@@ -3,7 +3,6 @@ import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DownloadService } from '../../../services/download.service';
 import { NgxFileDropEntry, NgxFileDropModule } from 'ngx-file-drop';
 import { HomeService } from '../../../services/home.service';
@@ -26,7 +25,7 @@ export class HomeComponent {
     alert('Download de Planilha realizado');
   }
   importFile(){
-    
+
   }
   onChangeFile(event : any){
     if(event.target.files.length > 0){

@@ -7,4 +7,5 @@ export interface DashboardOrder{
     productName:string;
     productPrice: number;
     socialname:string;
+    region:string;
   }
