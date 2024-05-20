@@ -96,7 +96,7 @@ export class DashboardComponent implements AfterViewInit {
       if (!salesByProduct[product]) {
         salesByProduct[product] = 0;
       }
-      salesByProduct[product]++;
+      salesByProduct[product]+= order.productPrice;
     });
 
     // Preparar dados para o gráfico de pizza

@@ -9,9 +9,9 @@ export class LoadingService {
   loading$: Observable<boolean> = this.loadingSubject.asObservable();
   
   hide(): void {
-    this.loadingSubject.next(false);
+    Promise.resolve().then(() => this.loadingSubject.next(false));
   }
   show(): void {
-    this.loadingSubject.next(true);
+    Promise.resolve().then(() => this.loadingSubject.next(true));
   }
 }
