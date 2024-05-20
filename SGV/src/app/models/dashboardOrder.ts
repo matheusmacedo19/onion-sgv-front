@@ -1,7 +1,10 @@
 export interface DashboardOrder{
-    id?:any
-    nome:string;
-    produto:string;
-    valor: number;
-    dataEntrega: Date;
+    cep: string;
+    document:string;
+    orderDate: Date;
+    orderId : number;
+    productId:number;
+    productName:string;
+    productPrice: number;
+    socialname:string;
   }

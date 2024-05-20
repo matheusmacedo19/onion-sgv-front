@@ -2,18 +2,19 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';  
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginator} from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DashboardOrder } from '../../../models/dashboardOrder';
 import { DashboardService } from '../../../services/dashboard.service';
 import { response } from 'express';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet,MatTableModule,MatFormFieldModule,MatPaginatorModule,MatInputModule],
+  imports: [RouterOutlet,MatTableModule,MatFormFieldModule,MatPaginator,MatInputModule,CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -23,8 +24,8 @@ export class DashboardComponent implements AfterViewInit {
   dashboardOrders: DashboardOrder[] = [];
   displayedColumns: string[] = ['cliente', 'produto', 'valor', 'dataEntrega'];
   dataSource = new MatTableDataSource<DashboardOrder>(this.dashboardOrders);
-
-  @ViewChild(MatPaginatorModule) paginator!: MatPaginator;
+  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private service : DashboardService){}
@@ -47,6 +48,8 @@ export class DashboardComponent implements AfterViewInit {
   findAll(): void{
     this.service.findAll().subscribe((response) => {
       this.dashboardOrders = response;
+      this.dataSource.data = this.dashboardOrders;
+      console.log(this.dataSource.data);
       console.log(this.dashboardOrders);
     })
   }

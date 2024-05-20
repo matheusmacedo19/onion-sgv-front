@@ -13,7 +13,7 @@
         <mat-card-content>
             <img class="image" src="assets/img/download.jpg" alt="">    
             <mat-card-actions>
-                <button mat-flat-button color="primary" onclick="DownloadFile()">Planilha Modelo</button>
+                <button mat-flat-button color="primary" (click)="downloadFile()">Planilha Modelo</button>
             </mat-card-actions>
 		</mat-card-content>
     </mat-card>
@@ -21,7 +21,7 @@
         <mat-card-content>
             <img class="image" src="assets/img/upload.jpg" alt="">    
             <mat-card-actions>
-                <button mat-flat-button color="accent" onclick="ImportFile()">Upload</button>
+                <input type="file" (change)="onChangeFile($event)">
             </mat-card-actions>
 		</mat-card-content>
     </mat-card>
