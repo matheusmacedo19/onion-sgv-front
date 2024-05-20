@@ -25,7 +25,9 @@ export class HomeComponent {
     this.downloadService.downloadFile(url);
     alert('Download de Planilha realizado');
   }
-
+  importFile(){
+    
+  }
   onChangeFile(event : any){
     if(event.target.files.length > 0){
       const file = event.target.files[0];
